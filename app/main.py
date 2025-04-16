@@ -10,13 +10,13 @@ BASE_URL = "http://api.weatherapi.com/v1/current.json"
 KEY = os.getenv("API_KEY")
 
 def get_weather() -> None:
-    response = requests.get(f"{BASE_URL}?key={KEY}&q={FILTERING_CITY}")
+    # response = requests.get(f"{BASE_URL}?key={KEY}&q={FILTERING_CITY}")
 
-    # params = {
-    #     "key": KEY,
-    #     "q": FILTERING_CITY,
-    # }
-    # response = requests.get(BASE_URL, params=params)
+    params = {
+        "key": KEY,
+        "q": FILTERING_CITY,
+    }
+    response = requests.get(BASE_URL, params=params)
 
     if response.status_code == 200:
         info = response.json()
